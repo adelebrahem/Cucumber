@@ -1,24 +1,33 @@
 package Steps;
+
+import Base.BaseClass;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 
+public class loginSteps extends BaseClass {
 
-import static Base.BaseClass.launchBrowser;
-
-public class loginSteps {
-    WebDriver driver;
-    @Given("User-ID must not be blank and Password must not be blank")
-    public void user_id_must_not_be_blank_and_password_must_not_be_blank(){
-        launchBrowser();
+    @Given("User open browser and enter username and password")
+    public void User_open_browser_and_enter_username_and_password() {
+        launchTheBrowser();
     }
-    @When("Enter username{string}and{string}password")
-    public void click_login_button(String username,String password) {
-        // Write code here that turns the phrase above into concrete actions
+
+    @When("User Enter username{string}and the password{string}")
+    public void user_enter_username_qacart_and_the_password_test123(String username, String password) {
         driver.findElement(By.name("username")).sendKeys(username);
         driver.findElement(By.name("password")).sendKeys(password);
         driver.findElement(By.cssSelector("[value=\"Login\"]")).click();
-
     }
+
+    @Then("User logged in successfully")
+    public void user_Logged_In_Successfully() {
+       Assert.assertTrue(driver.findElement(By.cssSelector("[class=\"logo_text\"]")).isDisplayed());
+        driver.switchTo().frame("mainpanel");
+    }
+
 }
