@@ -7,10 +7,10 @@ import io.cucumber.java.Before;
 public class hooks extends BaseClass {
     @Before
     public void runsBeforeAnyScenarios(){
-
+        System.out.println("before");
     }
     @After
-    public void afterRunsAnyScenarios(){
-    driver.quit();
+    public void runsAfterAnyScenarios(){
+
     }
 }

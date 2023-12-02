@@ -4,16 +4,14 @@ import Base.BaseClass;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class loginSteps extends BaseClass {
 
     @Given("User open browser and enter username and password")
-    public void User_open_browser_and_enter_username_and_password() {
+    public void User_open_browser_and_enter_username_and_password(){
         launchTheBrowser();
     }
 
